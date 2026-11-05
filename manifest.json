@@ -1,0 +1,12 @@
+{
+    "id": "lib-pret",
+    "name": "lib-pret",
+    "version": "1.0.0",
+    "apiVersion": 2,
+    "author": "Frekvens1",
+    "description": "Automatable and CLI friendly pret.py",
+    "permissions": ["network", "events", "shell", "ui"],
+    "dependencies": [],
+    "cover": "cover.png",
+    "tags": ["pret.py", "printer", "cli"]
+}
