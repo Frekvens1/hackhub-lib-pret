@@ -1,12 +1,12 @@
 {
     "id": "lib-pret",
     "name": "lib-pret",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "apiVersion": 2,
     "author": "Frekvens1",
-    "description": "Automatable and CLI friendly pret.py",
     "permissions": ["network", "events", "shell", "ui"],
     "dependencies": [],
     "cover": "cover.png",
-    "tags": ["pret.py", "printer", "cli"]
+    "tags": ["pret.py", "printer", "cli"],
+    "description": "A terminal version of pret.py.\nIt connects to a printer and prints a .txt file on it without the PRET window, so you can use it from your own scripts.\n\n[code]\n$ pret 121.160.143.252 ascii.txt\n      ________________\n    _/_______________/|\n   /___________/___//||   PRET | Printer Exploitation Toolkit v0.25\n   ...\nConnection to Sharp MX-3071 established\nPrinting ascii.txt...\nPrinted ascii.txt on Sharp MX-3071\n[/code]\n\n[h2]Features[/h2]\n\n[list]\n[*]Same checks and messages as pret.py: the printer must have port 9100 forwarded and not blocked by a firewall.\n[*]Plays fair: it needs python3, takes as long as pret.py and the PRET window, and counts for the same quest objectives.\n[*]Documented in the in-game Handbook, under [b]FrekLib[/b].\n[/list]\n\n[h2]Usage[/h2]\n\n[code]\napt-get install python3\napt-get install pret\n\npret <ip>                   # connect only\npret <ip> <file.txt>        # connect and print\npret <ip> <file.txt> -json  # JSON\n[/code]\n\n[h3]In scripts[/h3]\n\n[code]\ninterface PretResult {\n    ip: string;\n    lanIp: string | null;\n    model: string | null; // printer model\n    file: string | null;  // printed file, null when only connecting\n}\n\nconst output = await Shell.Process.exec(\"pret 121.160.143.252 ~/ascii.txt -json\", { silent: true });\nconst result: PretResult = JSON.parse(output);\n[/code]\n\n[h2]Source code[/h2]\n\nThe source is on [url=https://github.com/Frekvens1/hackhub-lib-pret]GitHub[/url]. Subscribing here installs the mod for you, so you only need it if you want to build it yourself.\n\n[h2]License[/h2]\n\n[url=https://github.com/Frekvens1/hackhub-lib-pret/blob/main/LICENSE]MIT[/url]. Fork it, change it, and build on it!"
 }
